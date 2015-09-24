@@ -2,20 +2,11 @@ library(shiny)
 library(ggplot2)
 
 
-# Input variables
-nrruns = 40  # Initial number of runs
-lambda = 0.2 # Initial Lambda value
-nrsims = 100 # Initial number of simulations
-
-
 simulate = function(lambda, n, sims){
     sample = NULL
     for (i in 1 : sims) sample = c(sample, mean(rexp(n, lambda)) )
     sample
 }
-
-
-
 
 set.seed(612*2)
 
