@@ -14,14 +14,6 @@ simulate = function(lambda, n, sims){
     sample
 }
 
-# Internal variables
-#sample.means <<- simulate(lambda, nrruns, nrsims)
-#sample.sd <<- sd(sample.means) # Means standard deviation over the 1000 simulations
-#sample.var <<- var(sample.means) # Means variance over the 1000 simulations
-#conf.int.95.low <<- mean(sample.means)+qnorm(0.025)*sample.sd # Lower confidence interval (95%)
-#conf.int.95.high <<- mean(sample.means)+qnorm(0.975)*sample.sd # Higher confidence interval (95%)
-#means.density <<- density(sample.means, n=nrruns) # Compute density of our samples
-
 
 
 
@@ -29,8 +21,8 @@ set.seed(612*2)
 
 shinyServer( 
     function(input, output) {
-        output$meanVarTable = renderTable({
-                sample.means <<- simulate(input$lambda, input$nrruns, input$nrsims)
+        output$meanVarTable <- renderTable({
+                sample.means = simulate(input$lambda, input$nrruns, input$nrsims)
                 sample.sd = sd(sample.means) # Means standard deviation over the 1000 simulations
                 sample.var = var(sample.means) # Means variance over the 1000 simulations
                 conf.int.95.low = round(mean(sample.means)+qnorm(0.025)*sample.sd, digit=3) # Lower confidence interval (95%)
