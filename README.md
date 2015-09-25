@@ -1,2 +1,2 @@
 # Coursera-DevDataPrd
-Coursera course on developing data products
+This repository hosts my submited work for the Coursera "Developing Data Product" assignment.
